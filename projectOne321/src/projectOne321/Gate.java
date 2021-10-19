@@ -4,7 +4,7 @@ public class Gate {
 	int x = 1;
 	int y = 1;
 	char[] j = {'x','y'};
-	String k;
+	int k = 1;
 	int m = 1;
 	int n = 1;
 /*	public Gate(int setN, int setM) {
@@ -24,10 +24,10 @@ public class Gate {
 	public void setY(int y) {
 		this.y = y;
 	}
-	public String getK() {
+	public int getK() {
 		return k;
 	}
-	public void setK(String k) {
+	public void setK(int k) {
 		this.k = k;
 	}
 	public int getM() {
@@ -52,6 +52,13 @@ public class Gate {
 	public void setJy(char j) {
 		this.j[1] = j;
 	}
+	public char getJx() {
+		return j[0];
+	}
+	public char getJy() {
+		return j[1];
+	}
+	
 	public Gate gate(int m, int n) {
 		
 		return null;

@@ -26,13 +26,13 @@ public class driver {
     	
     	
     	System.out.print("Reading file...\n");
+    	System.out.println("A | B | C-in | Sum | C-out");
+    	System.out.println("__________________________");
     
-    //Gets file within project
-    	File files = new File(".");
-    	for(String fileNames : files.list()) System.out.println(fileNames);
+    //Gets file within project   	
         File file = new File("E:\\projectOne321\\projectOne321\\src\\wiringlist.txt");
         if(file.isFile()) {
-        	System.out.print("yes");
+        //	System.out.print("yes");
         }
         Scanner fileRead = new Scanner(file);
 
@@ -56,8 +56,7 @@ public class driver {
         			xORy = fileRead.next();
         			fileRead.nextLine();
         		if (!output.equals("empty")) {
-    	            System.out.println(output + "8");
-    	            switch(output) {
+        			switch(output) {
     	            case "1":
     	            	for (int i = 0; i < gate.length; i++) {
     	            		  
@@ -167,7 +166,7 @@ public class driver {
     	                    		gate[i].setJy(input.charAt(0));
     	                    	}
     	                    }
-    //figure what to do with z later	                    System.out.print(x + " ");
+
     	            	
     	            }
     	            	break;
@@ -175,28 +174,92 @@ public class driver {
 
 
     			}
-    			
-    			if (!xORy.equals("empty")){
-    				System.out.println(xORy + "9");
-    			}	
-    			
-        		if (!input.equals("empty")) {
-        	            System.out.println(input + "7");
-        		}
-        			
-        		
-        			
-        
-        
-        //    System.out.print(codea0b0(j,k,m,n);
-        			
-        
-        
+    	           
+    	        
         
         }
         
     }
-       }
+        
+        
+       
+        
+
+        //This method sets up circuit with corresponding a, b, and c values. Also executes the circuit for the values given and finally, 
+        	// prints all info out in a table creates while doing all athe above.
+    gateInitate(gate,0,0,0);
+    gateInitate(gate,0,0,1);   
+    gateInitate(gate,0,1,0);   
+    gateInitate(gate,0,1,1);   
+    gateInitate(gate,1,0,0);   
+    gateInitate(gate,1,0,1);   
+    gateInitate(gate,1,1,0);   
+    gateInitate(gate,1,1,1);   
+    }
+
+	private static void gateInitate(Gate[] gate, int aValue, int bValue, int cValue) {
+	  // This method inits all a's, b's, and c's inputs to there int values 
+            
+        	for (int i = 0; i < gate.length; i++) {
+        		  if(gate[i].getJx() == 'a') {
+        			  gate[i].setX(aValue);
+        		  }
+        		  if(gate[i].getJy() == 'a') {
+        			  gate[i].setY(aValue);
+        		  }
+        		  if(gate[i].getJx() == 'b') {
+        			  gate[i].setX(bValue);
+        		  }
+        		  if(gate[i].getJy() == 'b') {
+        			  gate[i].setY(bValue);
+        		  }
+        		  if(gate[i].getJx() == 'c') {
+        			  gate[i].setX(cValue);
+        		  }
+        		  if(gate[i].getJy() == 'c') {
+        			  gate[i].setY(cValue);
+        		  }
+        		  
+        	}
+        
+        		for (int i = 0; i <= 2; i++) {
+        	if(!(gate[i].getX() == 1 && gate[i].getY()==1)) {
+        		gate[i].setK(1);
+        		
+        	}
+        	else
+        		gate[i].setK(0);
+        		
+        	
+
+        		}
+        		//code to satisfy gate 4, 5, 6 outputs
+        			//gate 4
+        			if(!(gate[3-3].getK() == 1 && gate[3-2].getK() == 1)) {
+        				gate[3].setK(1);
+        			}
+        			else
+                		gate[3].setK(0);
+        			//gate 5
+        			if(!(gate[3].getK() == 1)){
+        				gate[4].setK(1);
+        			}
+        			else
+                		gate[4].setK(0);
+        			//gate 6
+        			if(!(gate[4].getK() == 1 && gate[2].getK() == 1)) {
+        				gate[5].setK(1);
+        			}
+        			else
+                		gate[5].setK(0);
+        		
+        		//Code to print out table of values (Results)
+        			
+        			System.out.println(aValue + " | " + bValue + " |   "+ cValue + "  |   0 |   " +  gate[5].getK());
+        			System.out.println("__________________________");
+	}
+
+
 }    
 
 	
