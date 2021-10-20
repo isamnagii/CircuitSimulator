@@ -29,7 +29,6 @@ public class driver {
 	System.out.println("Please enter your file name you would like to be read. Enter \"wiringlist.txt" + " for default list in project folder to be read: ");
     Scanner in = new Scanner(System.in);
 	String fileName = in.nextLine();
-		fileName = "projectOne321\\src\\wiringlist.txt";
 	File file = new File(fileName);
         if(file.isFile()) {
         //	System.out.print("yes");
